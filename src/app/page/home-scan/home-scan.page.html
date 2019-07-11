@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title  text-center>Scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="8" offset="2" text-center>
+        <h2>SCAN</h2>
+        <p>Scannez votre flashcode afin d'y accéder directement</p>
+      </ion-col>
+    </ion-row>
+    <div>
+      <ion-row>
+        <ion-col text-center>
+            <ion-icon (click)="scanCode()" name="qr-scanner" class="custom-icon"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+    <!-- The lines below are there for the dev, to be removed during the production-->
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Entrer une valeur</ion-label>
+          <ion-input [(ngModel)]="value"  clearInput></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="goToBt()" expand="full" color="medium" shape="round">
+          bon de travail
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- End of dev lines -->
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="user" (ngSubmit)="formsubmit(user)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="usermail" type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="user.controls.email.invalid && user.controls.email.dirty" no-lines>
+        <p>Forme du mail invalide</p>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="user.controls.password.invalid && user.controls.password.dirty">
+        <p>Forme du mot de passe invalide</p>
+
+      </ion-item>
+
+      <ion-button color="primary" full type="submit" class="ion-text-center" type="submit" [disabled]="user.invalid">Soumettre</ion-button>
+      <ion-button (click)="saveData()">Save Data</ion-button>
+    </ion-list>
+  </form>
+</ion-content>

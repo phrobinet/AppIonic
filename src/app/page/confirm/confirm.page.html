@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-title>Confirmer votre choix</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-list>
+      <ion-item text-center class="head" lines="none">
+        <ion-col size="12" class="head">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          <h1 class="titre">Le travail est-il fini ?</h1>
+        </ion-col>
+      </ion-item>
+      
+      <div *ngIf="isLoading" text-center lines="none">
+        <ion-spinner color="primary"></ion-spinner>
+      </div> 
+      <ion-item *ngIf="!isLoading">
+        <ion-col size="12">
+          <ion-button expand="full" color="tertiary"(click)="onYes()" shape="round">
+            OUI
+          </ion-button>
+        </ion-col>
+      </ion-item>
+      
+      <ion-item lines="none" *ngIf="!isLoading">
+        <ion-col size="12">
+          <ion-button expand="full" color="medium "(click)="onNo()" shape="round">
+            NON
+          </ion-button>
+        </ion-col>
+      </ion-item>
+    </ion-list> 
+  </ion-grid>
+
+
+</ion-content>

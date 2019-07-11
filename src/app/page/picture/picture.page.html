@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-title>Ajouter une Photo</ion-title>
+  </ion-toolbar>
+  <ion-toolbar  color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="bt"></ion-back-button>
+      <p>Retour</p>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content>
+
+  <ion-grid >
+    <ion-row>
+      <ion-col size="12" text-center>
+        <ion-icon name="image" color="tertiary" class="icon"></ion-icon>
+        <p class="icon-p">Ajouter une photo</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="here">
+      <ion-col size="12" text-center>
+        <img [src]="image" class="image">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-col size="10" offset="1" text-center (click)="takePhoto()" class="plus">
+            <ion-icon name="add"></ion-icon>
+          </ion-col>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" text-center>
+        <ion-button (click)="onValid()" id="valid">
+          Valider
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+          <ion-item button color="danger" (click)="onStop()" expand="full" *ngFor="let stop of tab" lines="none" class="button">
+              <img src="../../../assets/img/stop.png" class="image">
+              <ion-label class="text">ARRÊTER LE TIMER</ion-label>
+              <ion-label class="id">{{ stop.id }}</ion-label>
+            </ion-item>
+        
+        
+          </ion-grid>
+
+</ion-content>

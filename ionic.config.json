@@ -1,0 +1,7 @@
+{
+  "name": "mecaprog",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

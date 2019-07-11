@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <!-- Les 2 fichiers app.component.html & app.component.ts -->
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title text-left>Bon de travail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-fab horizontal="end" class="fab">
+        <ion-fab-button color="light" (click)="addScan()" >
+          <ion-icon name="add" ></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+  <div *ngIf="isLoading" text-center>
+    <ion-progress-bar></ion-progress-bar>
+  </div>
+  <ion-grid>
+    <ion-list>    
+
+    <ion-item color="success" lines="none">
+      <ion-col size="10" offset="1">
+        <h5>Timer</h5>
+        <ion-row  *ngFor="let t of tab ">
+            <ion-col size="4">
+                {{ t.start | date:"hh:mm"}}
+              </ion-col>
+              <ion-col size="4" offset="2" id="time">
+                  {{ t.id}}
+              </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-col size="10" offset="1">
+        <h4>N° Affaire</h4>
+      </ion-col>
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-col size="4" offset="1" color="success" (click)="onMessage()" class="icon">
+          <ion-icon name="text" ></ion-icon>
+          <p class="sousTitre">Ajouter une note</p>          
+        </ion-col>
+        <ion-col size="4" offset="2" color="success" (click)="onPhoto()" class="icon">
+          <ion-icon name="image" class="custom-icon"></ion-icon>
+          <p class="sousTitre">Ajouter une photo</p>
+        </ion-col>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-col size="10" offset="1">
+        <h4>Désignation du BT</h4>
+        <p>{{ designation }}</p>
+      </ion-col>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-col size="10" offset="1">
+        <h4>Description du BT</h4>
+        <p>{{ description }}</p>
+      </ion-col>
+    </ion-item>
+
+    <!-- <ion-item color="danger" (click)="onStop()"  *ngFor="let stop of tab" lines="none">
+        <ion-col size="1">
+          <img src="../../../assets/img/stop.png" class="image">
+        </ion-col>
+        <ion-col size="6">
+          <p> ARRÊTER LE TIMER</p>
+        </ion-col>
+        <ion-col size="5">
+          <p>{{ stop.id }}</p>
+        </ion-col>
+      </ion-item> -->
+
+      <ion-item button color="danger" (click)="onStop()" expand="full" *ngFor="let stop of tab" lines="none" class="btn">
+        <img src="../../../assets/img/stop.png" class="image">
+        <ion-label class="text">ARRÊTER LE TIMER</ion-label>
+        <ion-label class="id">{{ stop.id }}</ion-label>
+      </ion-item>
+
+  </ion-list>
+  </ion-grid>
+</ion-content>

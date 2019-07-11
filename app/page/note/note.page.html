@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Ajouter une Note</ion-title>
+    </ion-toolbar>
+    <ion-toolbar  color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="bt"></ion-back-button>
+        <p>Retour</p>
+      </ion-buttons>
+    </ion-toolbar>  
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row >
+        <ion-col text-center >
+          <ion-icon name="text" class="text" color="tertiary"></ion-icon>
+          <h3>Ajouter une note</h3>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item class="ion-justify-content-center">
+            <ion-label position="floating">Votre texte</ion-label>
+            <ion-textarea [(ngModel)]="texte"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+        <ion-item lines="none">
+          <ion-col size="12" class="ion-no-margin">
+            <ion-button expand="full" (click)="onDB()" id="enregistre">
+              Enregistrer
+            </ion-button>
+          </ion-col>
+        </ion-item>
+
+        <ion-item button color="danger" (click)="onStop()" expand="full" *ngFor="let stop of tab" lines="none" class="btn">
+          <img src="../../../assets/img/stop.png" class="image" class="image">
+          <ion-label class="text">ARRÊTER LE TIMER</ion-label>
+          <ion-label class="id">{{ stop.id }}</ion-label>
+        </ion-item>
+    </ion-grid>
+  </ion-content>
